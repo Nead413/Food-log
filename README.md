@@ -3,3 +3,7 @@
 Healthy Habits
 
 Healthy Habits is a web-based application designed to assist users with tracking their daily calorie consumption and macronutrient intake. Using this app, the user would be able to input food items that they have consumed throughout the day in addition to the exercise that they have done. It would offer personalised feedback based on the user data. 
+
+## Contributors 
+
+Tehj Patel
