@@ -1,0 +1,220 @@
+/* General container styles */
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+    background: #121212;
+    color: white;
+    box-sizing: border-box;
+    gap: 20px;
+  }
+  
+  /* Header styles */
+  .quiz-header {
+    text-align: center;
+    background: linear-gradient(to right, #4caf50, #2a9d8f);
+    padding: 30px 20px;
+    border-radius: 15px;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .quiz-header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    opacity: 0.9;
+  }
+  
+  /* Main content container */
+  .quiz-content {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  /* Quiz widget styles */
+  .quiz-widget {
+    background: linear-gradient(145deg, #2a2a2a, #3a3a3a);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    flex: 2;
+    min-width: 300px;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  /* Quiz animation */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Progress bar */
+  .progress-bar-container {
+    background-color: #444;
+    border-radius: 15px;
+    height: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #4caf50, #2a9d8f);
+    transition: width 0.4s ease-in-out;
+    border-radius: 15px;
+    box-shadow: inset 0 -2px 4px rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Quiz options */
+  .quiz-option-button {
+    padding: 15px 20px;
+    margin: 8px;
+    background: #4caf50;
+    color: white;
+    border: 2px solid #3e8e41;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .quiz-option-button:hover {
+    background: #45a049;
+    transform: scale(1.1);
+  }
+  
+  /* Medal animation */
+  .badge-animation {
+    width: 120px;
+    height: 120px;
+    animation: badgeDrop 0.8s ease-out forwards;
+    display: block;
+    margin: 20px auto;
+  }
+  
+  @keyframes badgeDrop {
+    0% {
+      transform: translateY(-100px) scale(0.8);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Leaderboard section */
+  .leaderboard {
+    background: linear-gradient(145deg, #1e1e1e, #2b2b2b);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .leaderboard h2 {
+    text-align: center;
+    color: #4caf50;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .leaderboard ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .leaderboard li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #444;
+  }
+  
+  .leaderboard li:last-child {
+    border-bottom: none;
+  }
+  
+  .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  /* Quiz list section */
+  .quiz-list {
+    background: linear-gradient(145deg, #1e1e1e, #2b2b2b);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    flex: 1;
+  }
+  
+  .quiz-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .quiz-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+  }
+  
+  .quiz-item:last-child {
+    border-bottom: none;
+  }
+  
+  .medal-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #4caf50;
+    background: #fff;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .quiz-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .quiz-widget,
+    .leaderboard,
+    .quiz-list {
+      max-width: 100%;
+      width: 100%;
+    }
+  
+    .quiz-option-button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
