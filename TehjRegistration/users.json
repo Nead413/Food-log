@@ -1,0 +1,54 @@
+[
+  {
+    "username": "t3hj",
+    "email": "tehjpatel@gmail.com",
+    "password": "test1234",
+    "confirmPassword": "test1234",
+    "height": "5'11",
+    "heightUnit": "cm",
+    "weight": "60",
+    "weightUnit": "kg",
+    "desiredWeight": "75",
+    "sex": "male",
+    "dob": "2025-01-02"
+  },
+  {
+    "username": "trump",
+    "email": "trump@hotmail.com",
+    "password": "trump1234",
+    "confirmPassword": "trump1234",
+    "height": "5",
+    "heightUnit": "ft",
+    "weight": "80",
+    "weightUnit": "kg",
+    "desiredWeight": "75",
+    "sex": "male",
+    "dob": "2012-02-08"
+  },
+  {
+    "username": "Kris",
+    "email": "kris@gmail.com",
+    "password": "Testing1234",
+    "confirmPassword": "Testing1234",
+    "height": "5",
+    "heightUnit": "ft",
+    "weight": "60",
+    "weightUnit": "kg",
+    "desiredWeight": "75",
+    "sex": "female",
+    "dob": "2003-07-15"
+  },
+  {
+    "username": "Testing",
+    "email": "tehjpatel@gmail.com",
+    "password": "TESTING!\"£$",
+    "confirmPassword": "TESTING!\"£$",
+    "height": "567",
+    "heightUnit": "cm",
+    "weight": "55",
+    "weightUnit": "lbs",
+    "desiredWeight": "50",
+    "sex": "male",
+    "dob": "2001-08-09"
+  }
+]
