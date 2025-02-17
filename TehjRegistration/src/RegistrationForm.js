@@ -44,7 +44,7 @@ function RegistrationForm() {
       });
       console.log('User created:', response.data);
     } catch (error) {
-      console.error('Error creating user:', error);git 
+      console.error('Error creating user:', error);
     }
   };
 
@@ -97,13 +97,50 @@ function RegistrationForm() {
       </div>
       <div>
         <label>Height:</label>
-        <input
-          type="text"
-          name="height"
-          value={formData.height}
-          onChange={handleChange}
-          placeholder="Enter your height (ft/inch or cm)"
-        />
+        <div className="height-input">
+          <select
+            id="height-feet"
+            name="heightFeet"
+            value={formData.heightFeet}
+            onChange={handleChange}
+          >
+            <option value="" disabled selected>Feet</option>
+            <option value="3">3'</option>
+            <option value="4">4'</option>
+            <option value="5">5'</option>
+            <option value="6">6'</option>
+            <option value="7">7'</option>
+          </select>
+          <select
+            id="height-inches"
+            name="heightInches"
+            value={formData.heightInches}
+            onChange={handleChange}
+          >
+            <option value="" disabled selected>Inches</option>
+            <option value="0">0"</option>
+            <option value="1">1"</option>
+            <option value="2">2"</option>
+            <option value="3">3"</option>
+            <option value="4">4"</option>
+            <option value="5">5"</option>
+            <option value="6">6"</option>
+            <option value="7">7"</option>
+            <option value="8">8"</option>
+            <option value="9">9"</option>
+            <option value="10">10"</option>
+            <option value="11">11"</option>
+          </select>
+          <input
+            type="text"
+            id="height-text"
+            name="heightText"
+            value={formData.heightText}
+            onChange={handleChange}
+            placeholder="Or type (e.g., 5'8)"
+            maxlength="5"
+          />
+        </div>
       </div>
       <div>
         <label>Weight:</label>

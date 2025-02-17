@@ -84,3 +84,13 @@ a:hover {
 .button-group button {
   width: 48%;
 }
+
+.height-input {
+  display: flex; /* Arranges elements horizontally */
+  gap: 10px; /* Adds spacing between each element */
+}
+
+.height-input select, .height-input input {
+  padding: 5px;
+  font-size: 16px;
+}

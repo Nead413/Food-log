@@ -20,34 +20,16 @@ function RegistrationStep1() {
     });
   };
 
-  const handleNext = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    // Email validation
-    if (!emailPattern.test(formData.email)) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-    
-    // Password validation
-    if (formData.password.length < 8) {
-      alert('Password must be at least 8 characters long.');
-      return;
-    }
-    
-    // Confirm password validation
-    if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match.');
-      return;
-    }
-    
-    navigate('/step2', { state: { formData } });
+    // Save formData to localStorage or pass it to the next step
+    localStorage.setItem('registrationStep1', JSON.stringify(formData));
+    navigate('/step2');
   };
 
   return (
-    <form onSubmit={handleNext}>
-      <h2>Step 1: Account Details</h2>
+    <form onSubmit={handleSubmit}>
+      <h2>Register - Step 1</h2>
       <div>
         <label>Username:</label>
         <input
@@ -89,7 +71,6 @@ function RegistrationStep1() {
         />
       </div>
       <button type="submit">Next</button>
-      <p>Already have an account? <a href="/login">Login here</a></p>
     </form>
   );
 }
