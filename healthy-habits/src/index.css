@@ -1,0 +1,55 @@
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.profile-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.quiz-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.quiz-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.start-quiz-button {
+  padding: 8px 15px;
+  background-color: #4caf50;
+  color: white;
+}
+
+.badge-animation-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.badge-animation {
+  width: 120px;
+  height: 120px;
+  animation: badgeDrop 0.8s ease-out forwards;
+}
+
+@keyframes badgeDrop {
+  0% {
+    transform: translateY(-100px) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
