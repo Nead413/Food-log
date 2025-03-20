@@ -389,8 +389,8 @@ const ProfileSection = () => {
       <header style={styles.header}>
         <h1 style={styles.headerTitle}>Healthy Habits</h1>
         <nav style={styles.nav}>
-          <button style={styles.navButton} onClick={() => alert("Home clicked!")}>Home</button>
-          <button style={styles.navButton} onClick={() => alert("Profile clicked!")}>Profile</button>
+          <button style={styles.navButton} onClick={() => navigate('/homepage')}>Home</button> {/* Update Home button */}
+          <button style={styles.navButton} onClick={() => navigate('/profile')}>Profile</button> {/* Update Profile button */}
           <button style={styles.navButton} onClick={() => alert("Settings clicked!")}>Settings</button>
         </nav>
       </header>

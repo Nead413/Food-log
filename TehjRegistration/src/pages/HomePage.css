@@ -1,0 +1,359 @@
+/* General Layout */
+.home-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Navigation Bar */
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .video-section iframe {
+    max-width: 100%; 
+    height: 500;    
+  }
+  
+  .nav-bar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-bar ul li {
+    display: inline;
+  }
+  
+  .nav-bar ul li a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: #4CAF50;
+    color: white;
+    padding: 40px;
+    border-radius: 10px;
+  }
+  
+  .hero h2 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  .cta-button {
+    padding: 12px 24px;
+    margin-top: 15px;
+    background-color: white;
+    color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Quick Stats Section */
+  .quick-stats {
+    margin-top: 30px;
+  }
+  
+  .stats-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+  }
+  
+  .stat-box {
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .stat-label {
+    color: gray;
+  }
+  
+  /* Actions Section */
+  .actions {
+    margin-top: 30px;
+  }
+  
+  .actions button {
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .actions button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Motivation Section */
+  .motivation {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .motivation blockquote {
+    font-style: italic;
+    color: #555;
+  }
+  
+  /* Footer */
+  footer {
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: gray;
+  }
+
+/* Enhanced Quote Section */
+.quote-section {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.quote-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.quote-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.quote-text {
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  position: relative;
+  padding: 10px 20px;
+  margin: 0;
+  border-left: 4px solid var(--primary-color);
+}
+
+.refresh-quote-btn,
+.favorite-btn,
+.view-favorites-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.view-favorites-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.refresh-quote-btn:hover,
+.favorite-btn:hover {
+  background-color: var(--hover-color);
+}
+
+.view-favorites-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Favorites Modal */
+.favorites-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.favorites-content {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.favorites-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.favorites-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.favorite-quote-item {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.favorite-quote-item p {
+  margin: 0;
+  font-style: italic;
+  flex: 1;
+}
+
+.remove-favorite-btn {
+  background-color: var(--error-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Video Section */
+.video-section {
+  margin: 30px 0;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.video-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+/* Common button styles for both quote and video sections */
+.refresh-btn,
+.favorite-btn,
+.view-favorites-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.view-favorites-btn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.refresh-btn:hover,
+.favorite-btn:hover {
+  background-color: var(--hover-color);
+}
+
+.view-favorites-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Video Favorites */
+.video-favorites-content {
+  max-width: 800px;
+}
+
+.video-favorites-list {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.favorite-video-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.favorite-video-container {
+  width: 100%;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.favorite-video-container iframe {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.favorite-video-container .remove-favorite-btn {
+  margin-top: 10px;
+  width: 100%;
+}
