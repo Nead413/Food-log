@@ -6,13 +6,13 @@ form {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--form-bg);
+  box-shadow: 0 0 10px var(--shadow-color);
 }
 
 h2 {
   text-align: center;
-  color: #28a745;
+  color: var(--form-text);
   margin-bottom: 20px;
 }
 
@@ -24,14 +24,17 @@ label {
   margin-bottom: 5px;
   font-weight: bold;
   display: block;
+  color: var(--form-text);
 }
 
 input {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border);
   border-radius: 4px;
   width: 100%;
   box-sizing: border-box;
+  background-color: var(--input-bg);
+  color: var(--form-text);
 }
 
 button {
@@ -91,6 +94,26 @@ a:hover {
 }
 
 .height-input select, .height-input input {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.weight-input {
+  display: flex; /* Arranges elements horizontally */
+  gap: 10px; /* Adds spacing between each element */
+}
+
+.weight-input select, .weight-input input {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.sex-input {
+  display: flex; /* Arranges elements horizontally */
+  gap: 10px; /* Adds spacing between each element */
+}
+
+.sex-input select, .sex-input input {
   padding: 5px;
   font-size: 16px;
 }

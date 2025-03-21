@@ -22,9 +22,28 @@ function RegistrationStep1() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Save formData to localStorage or pass it to the next step
+    if (!isFormValid()) {
+      alert('Please fill in all fields');
+      return;
+    }
+    console.log('Form submitted:', formData);
     localStorage.setItem('registrationStep1', JSON.stringify(formData));
     navigate('/step2');
+  };
+
+  const handleBack = () => {
+    navigate('/');
+  };
+
+  const isFormValid = () => {
+    const { username, email, password, confirmPassword } = formData;
+    return (
+      username.trim() !== '' &&
+      email.trim() !== '' &&
+      password.trim() !== '' &&
+      confirmPassword.trim() !== '' &&
+      password === confirmPassword
+    );
   };
 
   return (
@@ -70,7 +89,10 @@ function RegistrationStep1() {
           placeholder="Confirm your password"
         />
       </div>
-      <button type="submit">Next</button>
+      <div className="button-group">
+        <button type="button" onClick={handleBack}>Back</button>
+        <button type="submit" disabled={!isFormValid()}>Next</button>
+      </div>
     </form>
   );
 }
