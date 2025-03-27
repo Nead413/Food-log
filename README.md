@@ -1,7 +1,5 @@
 # Healthy Habits
 
-![Healthy Habits](https://via.placeholder.com/800x300.png?text=Healthy+Habits+App)
-
 ## 🚀 Project Overview
 Healthy Habits is a comprehensive health and fitness tracking application designed to help users maintain a healthy lifestyle. The application allows users to track their meals, exercise routines, set health goals, and monitor their progress over time.
 
