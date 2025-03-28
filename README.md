@@ -6,10 +6,10 @@ Healthy Habits is a comprehensive health and fitness tracking application design
 ## 👥 Contributors (GROUP 35)
 - **Tehj Patel (2312980)** - [GitHub](https://github.com/t3hj)
 - **Yazid Belghar (221680)** - [GitHub](https://github.com/plainsbison)
-- **Allireza Kasiri (2376570)** - [GitHub]https://github.com/z1c12
+- **Allireza Kasiri (2376570)** - GitHub
 - **Dean Gurung (2320522)** - GitHub Account
 - **Kris Sah (2383758)** - GitHub Account
-- **Zain Chaudhry (2376797)** - GitHub Account
+- **Zain Chaudhry (2376797)** - GitHub Account https://github.com/z1c12
 - **Abdul Wahed Mohammad (2343304)** - GitHub Account
 - **Agustin Rosario Aurther (2270311)** - GitHub Account
 
