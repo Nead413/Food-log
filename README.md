@@ -4,12 +4,12 @@
 Healthy Habits is a comprehensive health and fitness tracking application designed to help users maintain a healthy lifestyle. The application allows users to track their meals, exercise routines, set health goals, and monitor their progress over time.
 
 ## 👥 Contributors (GROUP 35)
-- **Tehj Patel (2312980)** - [GitHub](https://github.com/t3hj)
-- **Yazid Belghar (221680)** - [GitHub](https://github.com/plainsbison)
+- **Tehj Patel (2312980)** - [t3hj](https://github.com/t3hj)
+- **Yazid Belghar (221680)** - [plainsbison](https://github.com/plainsbison)
 - **Allireza Kasiri (2376570)** - GitHub
-- **Dean Gurung (2320522)** - [GitHub](https://github.com/Nead13)
+- **Dean Gurung (2320522)** - [Nead13](https://github.com/Nead13)
 - **Kris Sah (2383758)** - GitHub Account
-- **Zain Chaudhry (2376797)** - GitHub Account https://github.com/z1c12
+- **Zain Chaudhry (2376797)** - [z1c12](https://github.com/z1c12)
 - **Abdul Wahed Mohammad (2343304)** - GitHub Account
 - **Agustin Rosario Aurther (2270311)** - GitHub Account
 
