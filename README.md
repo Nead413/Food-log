@@ -27,3 +27,64 @@ Healthy Habits is a comprehensive health and fitness tracking application design
 - **Database**: H2 Database
 - **Authentication**: BCrypt password hashing
 - **API**: RESTful API architecture
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v14 or higher)
+- Java 17 or higher
+- Maven
+
+### Installation
+
+#### Frontend
+```bash
+# Navigate to the frontend directory
+cd TehjRegistration
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+```
+
+#### Backend
+```bash
+# Navigate to the backend directory
+cd demo
+
+# Build the application
+mvn clean install
+
+# Run the application
+mvn spring-boot:run
+```
+
+## Usage
+1. Register a new account with your email and personal details
+2. Set up your profile with health metrics and goals
+3. Start logging your meals and exercises
+4. Track your progress through the dashboard
+5. Get personalized workout and nutrition recommendations
+
+## API Endpoints
+
+### User Endpoints
+- `POST /users` - Register a new user
+- `POST /users/login` - Authenticate user
+- `GET /users/{id}` - Get user by ID
+- `GET /users/findByEmail` - Find user by email
+- `DELETE /users/{id}` - Delete user
+
+### Exercise Log Endpoints
+- `GET /exercise-logs/user/{userId}` - Get all exercise logs for a user
+- `POST /exercise-logs` - Add a new exercise log
+- `GET /exercise-logs/{id}` - Get a specific exercise log
+- `PUT /exercise-logs/{id}` - Update an exercise log
+- `DELETE /exercise-logs/{id}` - Delete an exercise log
+
+### Food Log Endpoints
+- `GET /food-logs/user/{userId}` - Get all food logs for a user
+- `POST /food-logs` - Add a new food log
+- `GET /food-logs/daily/{userId}/{date}` - Get food logs for a specific date
