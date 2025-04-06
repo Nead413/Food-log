@@ -9,6 +9,7 @@ import ProfileSection from './profile/ProfileSection';
 import Settings from './pages/Settings';
 import { ThemeProvider } from './context/ThemeContext';
 import WorkoutsPage from './pages/WorkoutsPage';
+import Tracker from './components/Tracker'; 
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                     <Route path="/profile" element={<ProfileSection />} />
                     <Route path="/settings" element={<Settings />} />
                     <Route path="/workouts" element={<WorkoutsPage />} />
+                    <Route path="/tracker" element={<Tracker />} />
                 </Routes>
             </Router>
         </ThemeProvider>
