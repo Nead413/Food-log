@@ -18,6 +18,7 @@ app.post('/api/fit', async (req, res) => {
     const now = Date.now();
     const oneDayAgo = now - 86400000;
 
+    // Requesting daily fitness data from Google Fit
     const response = await axios.post(
       'https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate',
       {
@@ -39,7 +40,8 @@ app.post('/api/fit', async (req, res) => {
       }
     );
 
-    
+    // Sending the fitness data as response
+    res.json(response.data);  // Send back the fitness data to the frontend
   } catch (error) {
     console.error('Google Fit API error:', error?.response?.data || error.message);
     res.status(500).json({ error: 'Failed to fetch Google Fit data' });
@@ -55,6 +57,7 @@ app.post('/api/fit/weekly-steps', async (req, res) => {
     const now = Date.now();
     const oneWeekAgo = now - 7 * 24 * 60 * 60 * 1000;
 
+    // Requesting weekly step data from Google Fit
     const response = await axios.post(
       'https://www.googleapis.com/fitness/v1/users/me/dataset:aggregate',
       {
@@ -73,6 +76,7 @@ app.post('/api/fit/weekly-steps', async (req, res) => {
       }
     );
 
+    // Send back the weekly step data as response
     res.json(response.data);
   } catch (error) {
     console.error('Google Fit Weekly API error:', error?.response?.data || error.message);
