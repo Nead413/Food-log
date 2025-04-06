@@ -31,8 +31,10 @@ public class Blog {
     @NotBlank(message = "Category is required")
     private String category;
 
-    @ElementCollection
-    private List<String> comments = new ArrayList<>();
+    // One blog can have many comments
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "blog_id")  // Foreign key to link comments to blog
+    private List<Comment> comments = new ArrayList<>();
 
     private int likes;
 }

@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Blog;
 import com.example.demo.repository.BlogRepository;
+import com.example.demo.model.Comment;  // Import Comment model
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -68,9 +69,9 @@ public class BlogController {
 
     // Add a comment to a blog
     @PostMapping("/{id}/comments")
-    public ResponseEntity<Blog> addComment(@PathVariable Long id, @RequestBody String comment) {
+    public ResponseEntity<Blog> addComment(@PathVariable Long id, @RequestBody Comment comment) {  // Change to accept Comment object
         return blogRepository.findById(id).map(blog -> {
-            blog.getComments().add(comment);
+            blog.getComments().add(comment);  // Add the comment object
             return ResponseEntity.ok(blogRepository.save(blog));
         }).orElseGet(() -> ResponseEntity.notFound().build());
     }
