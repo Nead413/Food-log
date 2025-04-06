@@ -36,6 +36,11 @@
   .nav-bar nav ul li a:hover {
     color: var(--primary-color);
   }
+
+  .sign-out-btn{
+    background-color: #0062e2;
+    border-radius: 5rem;
+  }
   
   /* Optional: Responsive support for mobile */
   @media (max-width: 768px) {
