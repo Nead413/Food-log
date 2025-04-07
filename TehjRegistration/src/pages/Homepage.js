@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import "./HomePage.css";
+import NavBar from "../components/NavBar";
+
 
 const HomePage = () => {
   // Quote state
@@ -114,20 +116,9 @@ const HomePage = () => {
 
   return (
     <div className="home-container">
+      <NavBar/>
       {/* Navigation Bar */}
-      <header className="nav-bar">
-        <h1 className="logo">Healthy Habits</h1>
-        <nav>
-          <ul>
-            <li><Link to="/dashboard">Dashboard</Link></li>
-            <li><Link to="/food-log">Food Log</Link></li>
-            <li><Link to="/workouts">Workouts</Link></li>
-            <li><Link to="/profile">Profile</Link></li>
-            <li><Link to="/settings">Settings</Link></li>
-          </ul>
-        </nav>
-      </header>
-
+      
       {/* Hero Section */}
       <section className="hero">
         <h2>Track Your Meals. Achieve Your Goals.</h2>
@@ -199,7 +190,9 @@ const HomePage = () => {
       <section className="actions">
         <h3>What Would You Like to Do?</h3>
         <button>Log a Meal</button>
+        <Link to="/tracker">
         <button>Track a Workout</button>
+        </Link>
         <button>View Progress</button>
       </section>
 

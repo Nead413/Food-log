@@ -8,7 +8,7 @@ Healthy Habits is a comprehensive health and fitness tracking application design
 - **Yazid Belghar (221680)** - [plainsbison](https://github.com/plainsbison)
 - **Allireza Kasiri (2376570)** - GitHub
 - **Dean Gurung (2320522)** - [Nead13](https://github.com/Nead13)
-- **Kris Sah (2383758)** - GitHub Account
+- **Kris Sah (2383758)** - (https://github.com/shahaman098)
 - **Zain Chaudhry (2376797)** - [z1c12](https://github.com/z1c12)
 - **Abdul Wahed Mohammad (2343304)** - GitHub Account
 - **Agustin Rosario Aurther (2270311)** - GitHub Account

@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { gapi } from 'gapi-script';
 import '../index.css';
+
+const CLIENT_ID = '1062096731061-0vaoigu36cspe53bmh0hpt4hsf0l7rfm.apps.googleusercontent.com'; // Replace with your actual Client ID
+const scopes = 'https://www.googleapis.com/auth/fitness.activity.read https://www.googleapis.com/auth/fitness.location.read';
 
 const LandingPage = () => {
   const navigate = useNavigate();
+
+  // Initialize Google API client
+  useEffect(() => {
+    const initClient = () => {
+      gapi.client.init({
+        clientId: CLIENT_ID,
+        scope:scopes ,
+      });
+    };
+    gapi.load('client:auth2', initClient);
+  }, []);
+
+  // Google Sign-In Handler
+  const handleGoogleSignIn = () => {
+    const auth = gapi.auth2.getAuthInstance();
+    auth.signIn().then((googleUser) => {
+      const token = googleUser.getAuthResponse().access_token;
+      console.log('Google Fit Access Token:', token);
+      localStorage.setItem('googleFitToken', token);
+      navigate('/homepage');
+    }).catch((error) => {
+      console.error('Google Sign-In Error:', error);
+    });
+  };
 
   return (
     <div style={styles.container}>
@@ -22,6 +50,12 @@ const LandingPage = () => {
             onClick={() => navigate('/login')}
           >
             Sign In
+          </button>
+          <button 
+            style={styles.googleButton}
+            onClick={handleGoogleSignIn}
+          >
+            Sign In with Google
           </button>
         </div>
       </div>
@@ -74,6 +108,7 @@ const styles = {
     gap: '1rem',
     justifyContent: 'center',
     marginTop: '2rem',
+    flexWrap: 'wrap',
   },
   primaryButton: {
     padding: '12px 24px',
@@ -90,6 +125,16 @@ const styles = {
     backgroundColor: 'transparent',
     color: 'var(--text-color)',
     border: '2px solid var(--primary-color)',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    fontSize: '1.1rem',
+    fontWeight: 'bold',
+  },
+  googleButton: {
+    padding: '12px 24px',
+    backgroundColor: '#4285F4',
+    color: '#fff',
+    border: 'none',
     borderRadius: '8px',
     cursor: 'pointer',
     fontSize: '1.1rem',
