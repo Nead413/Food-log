@@ -60,6 +60,14 @@ mvn clean install
 # Run the application
 mvn spring-boot:run
 ```
+#### General Error - Node.js webpack
+```bash
+
+
+set NODE_OPTIONS=--openssl-legacy-provider
+npm start
+
+```
 
 ## Usage
 1. Register a new account with your email and personal details
