@@ -684,9 +684,9 @@ const ProfileSection = () => {
           <header className="workouts-header">
             <h1>Your Profile</h1>
             <nav>
-              <ul>
+            <ul>
                 <li><Link to="/homepage">Home</Link></li>
-                <li><a href="/Food-Tracker/FoodTracker.html">Food Log</a></li>
+                <li><Link to="/nutritiontracker">Food Log</Link></li>
                 <li><Link to="/workouts">Workouts</Link></li>
                 <li className="active"><Link to="/profile">Profile</Link></li>
                 <li><Link to="/settings">Settings</Link></li>

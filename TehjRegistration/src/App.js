@@ -10,6 +10,7 @@ import Settings from './pages/Settings';
 import { ThemeProvider } from './context/ThemeContext';
 import WorkoutsPage from './pages/WorkoutsPage';
 import Tracker from './components/Tracker'; 
+import NutritionTrackerPage from './pages/NutritionTrackerPage';
 
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/profile" element={<ProfileSection />} />
                     <Route path="/settings" element={<Settings />} />
                     <Route path="/workouts" element={<WorkoutsPage />} />
+                    <Route path="/nutritiontracker" element={<NutritionTrackerPage />} />
                     <Route path="/tracker" element={<Tracker />} />
                 </Routes>
             </Router>

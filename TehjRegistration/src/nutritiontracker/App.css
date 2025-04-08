@@ -1,0 +1,131 @@
+.nutrition-tracker-app {
+  background-color: white;
+  color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.nutrition-tracker-app header {
+  text-align: center;
+  background-color: #10B981;
+  padding: 20px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 8px;
+}
+
+.nutrition-tracker-app .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+  flex-wrap: wrap;
+}
+
+.nutrition-tracker-app .left-panel, 
+.nutrition-tracker-app .right-panel {
+  flex: 1;
+  min-width: 300px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  color: #333;
+}
+
+.nutrition-tracker-app .search-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.nutrition-tracker-app input[type="text"] {
+  padding: 10px;
+  width: 80%;
+  max-width: 300px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: white;
+  color: #333;
+}
+
+.nutrition-tracker-app button {
+  padding: 10px 16px;
+  background-color: #10B981;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.nutrition-tracker-app button:hover {
+  background-color: #0e9f6e;
+}
+
+.nutrition-tracker-app .food-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.nutrition-tracker-app .food-option {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.nutrition-tracker-app #trackedFoodsList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nutrition-tracker-app #trackedFoodsList li {
+  background-color: #edf2f7;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.nutrition-tracker-app #trackedFoodsList li:hover {
+  background-color: #e2e8f0;
+}
+
+.nutrition-tracker-app #statisticalBreakdown {
+  background-color: #f0fff4;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 1px solid #c6f6d5;
+}
+
+.nutrition-tracker-app h3, 
+.nutrition-tracker-app h4 {
+  color: #2d3748;
+  margin-top: 0;
+}
+
+.nutrition-tracker-wrapper {
+  padding: 20px;
+}
+
+.api-status-note {
+  background-color: #f8f9fa;
+  border-left: 4px solid #10B981;
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 0 4px 4px 0;
+  color: #333;
+  font-size: 14px;
+}
+
+.api-status-note p {
+  margin: 0;
+}

@@ -20,7 +20,7 @@ const NavBar = () => {
       <h1 className="logo"><Link to="/homepage">Healthy Habits</Link></h1>
       <nav>
         <ul>
-          <li><Link to="/food-log">Food Log</Link></li>
+          <li><Link to="/nutritiontracker">Food Log</Link></li>
           <li><Link to="/workouts">Workouts</Link></li>
           <li><Link to="/tracker">Tracker</Link></li>
           <li><Link to="/profile">Profile</Link></li>
