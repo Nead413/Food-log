@@ -13,7 +13,7 @@ function RegistrationStep2() {
   });
 
   // Using a ref instead of state since we're not using it for rendering
-  const heightUnitRef = React.useRef('cm');
+  const heightUnitRef = React.useRef('ft'); // Change default from 'cm' to 'ft' to match UI
   const [weightUnit, setWeightUnit] = useState('kg');
 
   const navigate = useNavigate();
@@ -29,10 +29,10 @@ function RegistrationStep2() {
   const handleHeightChange = (e) => {
     let value = e.target.value;
     if (heightUnitRef.current === 'ft') {
-      // Remove non-numeric chars except for apostrophe
-      value = value.replace(/[^0-9']/g, '');
+      // Remove non-numeric chars except for apostrophe and double quote
+      value = value.replace(/[^0-9'"]/g, '');
       
-      // Format to ensure proper pattern
+      // Format to ensure proper pattern for feet/inches
       if (value.length > 0 && !value.includes("'")) {
         // If we have at least one digit but no apostrophe, add it after the first digit
         value = value[0] + "'" + value.substring(1);
@@ -112,7 +112,7 @@ function RegistrationStep2() {
     const completeFormData = { 
       ...step1Data, 
       ...formData, 
-      heightUnit: heightUnitRef.current,  // Use the ref here 
+      heightUnit: heightUnitRef.current,
       weightUnit,
       // Ensure all required fields are present
       username: step1Data.username,
@@ -122,7 +122,7 @@ function RegistrationStep2() {
     };
 
     try {
-      const springResponse = await axios.post('http://localhost:8081/users', completeFormData, {
+      const springResponse = await axios.post('http://localhost:8080/users', completeFormData, {
         headers: {
           'Content-Type': 'application/json',
         },
