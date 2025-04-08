@@ -73,8 +73,8 @@ public class UserController {
                     .body("User with this username already exists");
             }
             
-            // Save user to database
-            System.out.println("Saving user to database...");
+            // Save user to databasea
+            System.out.println("Savinag user to database...");
             User savedUser = userService.saveUser(user);
             System.out.println("User saved successfully with ID: " + savedUser.getId());
             
