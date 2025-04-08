@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios'; // Add axios import
 import './WorkoutsPage.css';
 
 const WorkoutsPage = () => {
@@ -8,6 +9,16 @@ const WorkoutsPage = () => {
   const [filteredWorkouts, setFilteredWorkouts] = useState([]);
   const [filter, setFilter] = useState('all');
   const [loading, setLoading] = useState(true);
+  // Add new state variables for exercise logging
+  const [showLogForm, setShowLogForm] = useState(false);
+  const [selectedWorkout, setSelectedWorkout] = useState(null);
+  const [exerciseLog, setExerciseLog] = useState({
+    exerciseName: '',
+    duration: 30,
+    date: new Date().toISOString().split('T')[0]
+  });
+  const [exerciseHistory, setExerciseHistory] = useState([]);
+  const [logSuccess, setLogSuccess] = useState(false);
 
   // Preloaded workout data - wrap in useMemo
   const workoutLibrary = useMemo(() => [
@@ -179,6 +190,9 @@ const WorkoutsPage = () => {
         if (savedData) {
           const parsedData = JSON.parse(savedData);
           setUserData(parsedData);
+          
+          // Fetch exercise history for the user
+          fetchExerciseHistory();
         }
       } catch (error) {
         console.error('Error loading user data:', error);
@@ -189,6 +203,24 @@ const WorkoutsPage = () => {
 
     loadUserData();
   }, []);
+  
+  // Function to fetch exercise history from the backend
+  const fetchExerciseHistory = async () => {
+    try {
+      const userId = localStorage.getItem('userId');
+      if (!userId) return;
+      
+      console.log('Fetching exercise history for user ID:', userId);
+      
+      const response = await axios.get(`http://localhost:8080/exerciseLogs/user/${userId}`);
+      if (response.data) {
+        console.log('Exercise history fetched:', response.data);
+        setExerciseHistory(response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching exercise history:', error.response?.data || error.message);
+    }
+  };
 
   // Filter workouts based on user preferences
   useEffect(() => {
@@ -232,6 +264,83 @@ const WorkoutsPage = () => {
     }
   };
 
+  // Function to handle opening the exercise log form
+  const handleStartWorkout = (workout) => {
+    // We only need the workout name, no need to store the entire workout object
+    setExerciseLog({
+      exerciseName: workout.name,
+      duration: 30,
+      date: new Date().toISOString().split('T')[0]
+    });
+    setShowLogForm(true);
+  };
+  
+  // Function to handle input changes in the exercise log form
+  const handleExerciseLogChange = (e) => {
+    const { name, value } = e.target;
+    setExerciseLog({
+      ...exerciseLog,
+      [name]: value
+    });
+  };
+  
+  // Function to submit the exercise log
+  const handleLogSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const userId = localStorage.getItem('userId');
+      if (!userId) {
+        alert('User ID not found. Please log in again.');
+        return;
+      }
+      
+      // Format data to match what the backend expects
+      const logData = {
+        exerciseName: exerciseLog.exerciseName,
+        duration: parseInt(exerciseLog.duration, 10),
+        date: exerciseLog.date,
+        userId: parseInt(userId, 10)
+      };
+      
+      console.log('Submitting exercise log:', logData);
+      
+      // Make the API request
+      const response = await axios.post('http://localhost:8080/exerciseLogs', logData);
+      
+      console.log('Response from server:', response);
+      
+      if (response.status === 201) {
+        console.log('Exercise log saved successfully:', response.data);
+        setLogSuccess(true);
+        fetchExerciseHistory(); // Refresh exercise history
+        
+        // Reset form after 2 seconds
+        setTimeout(() => {
+          setLogSuccess(false);
+          setShowLogForm(false);
+        }, 2000);
+      }
+    } catch (error) {
+      console.error('Error logging exercise:', error);
+      let errorMessage = 'Failed to log exercise';
+      
+      // Extract error message from response if possible
+      if (error.response) {
+        console.error('Error response:', error.response);
+        errorMessage = typeof error.response.data === 'string' 
+          ? error.response.data 
+          : JSON.stringify(error.response.data);
+      }
+      
+      alert(`Error logging workout: ${errorMessage}`);
+    }
+  };
+  
+  // Function to close the exercise log form
+  const handleCloseForm = () => {
+    setShowLogForm(false);
+  };
+
   // Get unique workout types for filter buttons
   const workoutTypes = [...new Set(workouts.map(workout => workout.type))];
 
@@ -258,6 +367,22 @@ const WorkoutsPage = () => {
           {userData?.workoutPreferences?.location || "Gym"})
         </p>
       </section>
+      
+      {/* Display exercise history if available */}
+      {exerciseHistory.length > 0 && (
+        <section className="exercise-history">
+          <h3>Your Recent Workouts</h3>
+          <div className="history-list">
+            {exerciseHistory.slice(0, 5).map((log, index) => (
+              <div key={index} className="history-item">
+                <span className="history-name">{log.exerciseName}</span>
+                <span className="history-duration">{log.duration} minutes</span>
+                <span className="history-date">{new Date(log.date).toLocaleDateString()}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
       
       <section className="filter-section">
         <button 
@@ -300,7 +425,12 @@ const WorkoutsPage = () => {
                     ))}
                   </ol>
                 </div>
-                <button className="start-workout-btn">Start Workout</button>
+                <button 
+                  className="start-workout-btn" 
+                  onClick={() => handleStartWorkout(workout)}
+                >
+                  Log This Workout
+                </button>
               </div>
             </div>
           ))
@@ -311,6 +441,61 @@ const WorkoutsPage = () => {
           </div>
         )}
       </section>
+      
+      {/* Exercise Logging Modal */}
+      {showLogForm && (
+        <div className="exercise-log-modal">
+          <div className="modal-content">
+            <span className="close-modal" onClick={handleCloseForm}>&times;</span>
+            <h3>Log Your Workout</h3>
+            
+            {logSuccess ? (
+              <div className="success-message">
+                <p>Workout logged successfully!</p>
+              </div>
+            ) : (
+              <form onSubmit={handleLogSubmit} className="log-form">
+                <div className="form-group">
+                  <label>Workout Name</label>
+                  <input 
+                    type="text" 
+                    name="exerciseName" 
+                    value={exerciseLog.exerciseName} 
+                    onChange={handleExerciseLogChange}
+                    required 
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label>Duration (minutes)</label>
+                  <input 
+                    type="number" 
+                    name="duration" 
+                    value={exerciseLog.duration} 
+                    onChange={handleExerciseLogChange}
+                    min="1" 
+                    max="240" 
+                    required 
+                  />
+                </div>
+                
+                <div className="form-group">
+                  <label>Date</label>
+                  <input 
+                    type="date" 
+                    name="date" 
+                    value={exerciseLog.date} 
+                    onChange={handleExerciseLogChange}
+                    required 
+                  />
+                </div>
+                
+                <button type="submit" className="log-submit-btn">Save Workout</button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
       
       <section className="workout-tips">
         <h3>Workout Tips</h3>
